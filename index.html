@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Amazing Series</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <!-- Expandable Menu Button -->
+        <div class="menu-container">
+            <button class="menu-button" id="menuButton">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="#" id="youtubeLink" class="menu-link youtube">📺 YouTube</a>
+                <a href="#" id="twitterLink" class="menu-link twitter">🐦 Twitter</a>
+                <a href="#" id="discordLink" class="menu-link discord">💬 Discord</a>
+            </div>
+        </div>
+
+        <div class="logo-container">
+            <img src="logo.png" alt="Series Logo" class="logo">
+        </div>
+        
+        <!-- Pibby Character -->
+        <div class="character-container">
+            <img src="pibby.png" alt="Pibby Character" class="character">
+        </div>
+        
+        <!-- Status Bar -->
+        <div class="status-container">
+            <div class="status-label">Status: "Yep it n here"</div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="progress-ball" id="progressBall"></div>
+            </div>
+            <div class="progress-text" id="progressText">Loading...</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="newsletter-container">
+                <h1 class="newsletter-title" id="newsletterTitle">Latest Update!</h1>
+                
+                <div class="newsletter-image-container">
+                    <img src="newsletter.png" alt="Newsletter Image" class="newsletter-image">
+                </div>
+                
+                <div class="newsletter-meta">
+                    <span class="posting-date" id="postingDate">July 29, 2025</span>
+                </div>
+                
+                <div class="newsletter-content">
+                    <p id="newsletterText">
+                        Welcome to our amazing series! We're working hard to bring you the best content possible. 
+                        Stay tuned for more updates as we progress through this incredible journey. 
+                        Our team is dedicated to creating something truly special that you'll love!
+                    </p>
+                </div>
+                
+                <div class="writer-credit">
+                    <span>Written by: <strong id="writerName">Series Team</strong></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
