@@ -263,26 +263,25 @@ body {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 8px 8px 0px #333;
+}
+
+.newsletter-title {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #FFFF99; /* Light yellow shadow */
+}
+
+.newsletter-content-wrapper {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 200px 1fr;
     gap: 20px;
     align-items: start;
 }
 
-.newsletter-title {
-    grid-column: 2;
-    grid-row: 1;
-    font-size: 2.5em;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    text-shadow: 2px 2px 0px #FFFF99; /* Light yellow shadow */
-}
-
 .newsletter-image-container {
     grid-column: 1;
-    grid-row: 2 / span 3;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -296,9 +295,14 @@ body {
     box-shadow: 5px 5px 0px #333;
 }
 
-.newsletter-meta {
+.newsletter-text-section {
     grid-column: 2;
-    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.newsletter-meta {
     text-align: left;
     margin: 0;
 }
@@ -311,11 +315,10 @@ body {
     border-radius: 15px;
     font-weight: bold;
     box-shadow: 3px 3px 0px #333;
+    display: inline-block;
 }
 
 .newsletter-content {
-    grid-column: 2 / span 2;
-    grid-row: 3;
     margin: 0;
 }
 
@@ -332,8 +335,6 @@ body {
 }
 
 .writer-credit {
-    grid-column: 2 / span 2;
-    grid-row: 4;
     text-align: right;
     margin: 0;
     font-style: italic;
@@ -376,11 +377,11 @@ body {
     }
     
     .logo {
-        max-width: 150px;
+        max-width: 250px;
     }
     
     .character {
-        max-width: 60px;
+        max-width: 100px;
     }
     
     .status-container {
@@ -389,12 +390,24 @@ body {
     
     .newsletter-container {
         padding: 20px;
-        transform: rotate(0deg);
+    }
+    
+    .newsletter-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .newsletter-image-container {
+        grid-column: 1;
+        justify-content: center;
+    }
+    
+    .newsletter-text-section {
+        grid-column: 1;
     }
     
     .newsletter-title {
         font-size: 2em;
-        transform: rotate(0deg);
     }
     
     .main-content {
