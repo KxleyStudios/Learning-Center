@@ -50,7 +50,7 @@ function updateProgressBar() {
     progressBar.style.width = percentage + '%';
     
     // Update ball position (accounting for ball width)
-    const ballPosition = (percentage / 100) * (progressBar.parentElement.offsetWidth - 26);
+    const ballPosition = (percentage / 100) * (progressBar.parentElement.offsetWidth - 34);
     progressBall.style.left = ballPosition + 'px';
     
     // Update progress text
@@ -63,7 +63,6 @@ function updateProgressBar() {
     // Add completion effects
     if (percentage >= 100) {
         progressText.textContent = '🎉 Complete! 🎉';
-        progressBall.style.animation = 'bounce 0.5s infinite';
     }
 }
 
@@ -121,34 +120,26 @@ function setupMenuToggle() {
     });
 }
 
-// Add fun interactive effects
+// Add interactive effects (minimal, no animations)
 function addInteractiveEffects() {
-    // Make progress ball clickable for fun
+    // Make progress ball clickable
     const progressBall = document.getElementById('progressBall');
     progressBall.addEventListener('click', function() {
-        this.style.animation = 'bounce 0.5s';
+        // Just a simple visual feedback without animation
+        this.style.transform = 'translateY(-50%) scale(0.95)';
         setTimeout(() => {
-            this.style.animation = '';
-        }, 500);
+            this.style.transform = 'translateY(-50%)';
+        }, 100);
     });
     
-    // Add hover effect to newsletter
+    // Add hover effect to newsletter (no animation)
     const newsletter = document.querySelector('.newsletter-container');
     newsletter.addEventListener('mouseenter', function() {
-        this.style.transform = 'rotate(0deg) scale(1.02)';
+        this.style.transform = 'scale(1.01)';
     });
     
     newsletter.addEventListener('mouseleave', function() {
-        this.style.transform = 'rotate(-1deg) scale(1)';
-    });
-    
-    // Add click effect to character
-    const character = document.querySelector('.character');
-    character.addEventListener('click', function() {
-        this.style.animation = 'bounce 0.5s';
-        setTimeout(() => {
-            this.style.animation = 'bounce 2s infinite';
-        }, 500);
+        this.style.transform = 'scale(1)';
     });
     
     // Smooth scrolling for any future navigation

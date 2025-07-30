@@ -1,3 +1,28 @@
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+.posting-date {
+    background-color: #FFFF99; /* Light yellow from palette */
+    color: #333;
+    padding: 8px 15px;
+    border: 2px solid #333;
+    border-radius: 15px;
+    font-weight: bold;
+    box-shadow: /* Custom Font */
+@font-face {
+    font-family: 'SaldaSoft Black';
+    src: url('SaldaSoft Black.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -6,8 +31,8 @@
 }
 
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: white; /* White background */
+    font-family: 'SaldaSoft Black', 'Comic Sans MS', cursive, sans-serif;
+    background-color: white;
     color: #333;
     overflow-x: hidden;
 }
@@ -15,13 +40,12 @@ body {
 /* Header Styles */
 .header {
     position: relative;
-    background-color: #87CEEB; /* Light blue */
+    background-color: white;
     padding: 20px;
     min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 5px solid #333;
 }
 
 /* Expandable Menu Styles */
@@ -44,16 +68,14 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 0px #333;
-    transition: all 0.3s ease;
 }
 
 .menu-button:hover {
-    transform: scale(1.1);
-    box-shadow: 4px 4px 0px #333;
+    transform: scale(1.05);
 }
 
 .menu-button.active {
-    background-color: #FF69B4;
+    background-color: #DA70D6;
 }
 
 .hamburger-line {
@@ -107,39 +129,38 @@ body {
     font-weight: bold;
     border-radius: 10px;
     margin: 5px 0;
-    transition: all 0.3s ease;
     text-align: center;
 }
 
 .menu-link:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .menu-link.youtube {
-    background-color: #FF69B4; /* Pink */
+    background-color: #DA70D6; /* Pink/Magenta from palette */
     color: white;
 }
 
 .menu-link.youtube:hover {
-    background-color: #FF1493;
+    background-color: #C85AC8;
 }
 
 .menu-link.twitter {
-    background-color: #90EE90; /* Light green */
+    background-color: #98FB98; /* Light green from palette */
     color: #333;
 }
 
 .menu-link.twitter:hover {
-    background-color: #7FDD7F;
+    background-color: #85E885;
 }
 
 .menu-link.discord {
-    background-color: #FFFF99; /* Light yellow */
+    background-color: #FFFF99; /* Light yellow from palette */
     color: #333;
 }
 
 .menu-link.discord:hover {
-    background-color: #FFFF66;
+    background-color: #EEEE88;
 }
 
 .logo-container {
@@ -147,7 +168,7 @@ body {
 }
 
 .logo {
-    max-width: 200px;
+    max-width: 350px;
     height: auto;
     border: 3px solid #333;
     border-radius: 15px;
@@ -157,24 +178,11 @@ body {
 
 .character-container {
     margin-bottom: 15px;
-    animation: bounce 2s infinite;
 }
 
 .character {
-    max-width: 80px;
+    max-width: 120px;
     height: auto;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
 }
 
 /* Status Bar Styles */
@@ -193,22 +201,22 @@ body {
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
-    color: #333;
+    color: #DA70D6; /* Pink/Magenta from your palette */
 }
 
 .progress-bar-container {
     position: relative;
-    background-color: #f0f0f0;
-    border: 2px solid #333;
+    background-color: #87CEEB; /* Light blue from your palette */
+    border: 3px solid #333;
     border-radius: 25px;
-    height: 30px;
+    height: 40px;
     margin-bottom: 10px;
     overflow: hidden;
 }
 
 .progress-bar {
     height: 100%;
-    background-color: #90EE90; /* Light green from palette */
+    background-color: #FFFF99; /* Light yellow from your palette */
     border-radius: 25px;
     transition: width 0.5s ease-in-out;
     width: 0%;
@@ -218,13 +226,13 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 26px;
-    height: 26px;
-    background-color: #FF69B4; /* Pink/magenta from palette */
-    border: 3px solid white;
+    width: 34px;
+    height: 34px;
+    background-color: #FFFF99; /* Light yellow from your palette */
+    border: 3px solid #333;
     border-radius: 50%;
     transition: left 0.5s ease-in-out;
-    left: -13px;
+    left: -17px;
     box-shadow: 2px 2px 0px #333;
 }
 
@@ -255,32 +263,29 @@ body {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 8px 8px 0px #333;
-    transform: rotate(-1deg);
-    animation: wiggle 3s ease-in-out infinite;
-}
-
-@keyframes wiggle {
-    0%, 100% {
-        transform: rotate(-1deg);
-    }
-    50% {
-        transform: rotate(1deg);
-    }
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
+    align-items: start;
 }
 
 .newsletter-title {
+    grid-column: 2;
+    grid-row: 1;
     font-size: 2.5em;
-    color: #FF69B4; /* Pink */
+    color: #333;
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 0px #333;
-    transform: rotate(2deg);
+    margin: 0;
+    text-shadow: 2px 2px 0px #FFFF99; /* Light yellow shadow */
 }
 
 .newsletter-image-container {
+    grid-column: 1;
+    grid-row: 2 / span 3;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: flex-start;
 }
 
 .newsletter-image {
@@ -292,8 +297,10 @@ body {
 }
 
 .newsletter-meta {
-    text-align: center;
-    margin-bottom: 25px;
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    margin: 0;
 }
 
 .posting-date {
@@ -307,7 +314,9 @@ body {
 }
 
 .newsletter-content {
-    margin-bottom: 25px;
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    margin: 0;
 }
 
 .newsletter-content p {
@@ -323,14 +332,21 @@ body {
 }
 
 .writer-credit {
+    grid-column: 2 / span 2;
+    grid-row: 4;
     text-align: right;
+    margin: 0;
     font-style: italic;
     color: #666;
-    background-color: #90EE90; /* Light green */
+    background-color: #98FB98; /* Light green from palette */
     padding: 10px;
     border: 2px solid #333;
     border-radius: 10px;
     box-shadow: 3px 3px 0px #333;
+}
+
+.writer-credit strong {
+    color: #333;
 }
 
 .writer-credit strong {
