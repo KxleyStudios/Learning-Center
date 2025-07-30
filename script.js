@@ -39,7 +39,12 @@ function updateProgressBar() {
     const progressBar = document.getElementById('progressBar');
     const progressBall = document.getElementById('progressBall');
     const progressText = document.getElementById('progressText');
-    const statusLabel = document.querySelector('.status-label');
+    const statusLabel = document.getElementById('statusLabel');
+    
+    if (!progressBar || !progressBall || !progressText || !statusLabel) {
+        console.error('Progress bar elements not found');
+        return;
+    }
     
     const percentage = Math.max(0, Math.min(100, CONFIG.progress.percentage));
     
@@ -50,7 +55,9 @@ function updateProgressBar() {
     progressBar.style.width = percentage + '%';
     
     // Update ball position (accounting for ball width)
-    const ballPosition = (percentage / 100) * (progressBar.parentElement.offsetWidth - 34);
+    const container = progressBar.parentElement;
+    const containerWidth = container.offsetWidth || 600; // fallback width
+    const ballPosition = (percentage / 100) * (containerWidth - 40);
     progressBall.style.left = ballPosition + 'px';
     
     // Update progress text
@@ -63,6 +70,7 @@ function updateProgressBar() {
     // Add completion effects
     if (percentage >= 100) {
         progressText.textContent = '🎉 Complete! 🎉';
+        statusLabel.textContent = `Status: "Complete!"`;
     }
 }
 
@@ -73,17 +81,21 @@ function updateNewsletter() {
     const textElement = document.getElementById('newsletterText');
     const writerElement = document.getElementById('writerName');
     
-    titleElement.textContent = CONFIG.newsletter.title;
-    dateElement.textContent = CONFIG.newsletter.postingDate;
-    textElement.textContent = CONFIG.newsletter.text;
-    writerElement.textContent = CONFIG.newsletter.writerName;
+    if (titleElement) titleElement.textContent = CONFIG.newsletter.title;
+    if (dateElement) dateElement.textContent = CONFIG.newsletter.postingDate;
+    if (textElement) textElement.textContent = CONFIG.newsletter.text;
+    if (writerElement) writerElement.textContent = CONFIG.newsletter.writerName;
 }
 
 // Setup social media links
 function setupSocialLinks() {
-    document.getElementById('youtubeLink').href = CONFIG.socialLinks.youtube;
-    document.getElementById('twitterLink').href = CONFIG.socialLinks.twitter;
-    document.getElementById('discordLink').href = CONFIG.socialLinks.discord;
+    const youtubeLink = document.getElementById('youtubeLink');
+    const twitterLink = document.getElementById('twitterLink');
+    const discordLink = document.getElementById('discordLink');
+    
+    if (youtubeLink) youtubeLink.href = CONFIG.socialLinks.youtube;
+    if (twitterLink) twitterLink.href = CONFIG.socialLinks.twitter;
+    if (discordLink) discordLink.href = CONFIG.socialLinks.discord;
     
     // Make links open in new tab
     document.querySelectorAll('.menu-link').forEach(link => {
@@ -96,6 +108,11 @@ function setupSocialLinks() {
 function setupMenuToggle() {
     const menuButton = document.getElementById('menuButton');
     const menuDropdown = document.getElementById('menuDropdown');
+    
+    if (!menuButton || !menuDropdown) {
+        console.error('Menu elements not found');
+        return;
+    }
     
     menuButton.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -120,27 +137,31 @@ function setupMenuToggle() {
     });
 }
 
-// Add interactive effects (minimal, no animations)
+// Add interactive effects
 function addInteractiveEffects() {
     // Make progress ball clickable
     const progressBall = document.getElementById('progressBall');
-    progressBall.addEventListener('click', function() {
-        // Just a simple visual feedback without animation
-        this.style.transform = 'translateY(-50%) scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'translateY(-50%)';
-        }, 100);
-    });
+    if (progressBall) {
+        progressBall.addEventListener('click', function() {
+            // Simple visual feedback
+            this.style.transform = 'translateY(-50%) scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-50%)';
+            }, 150);
+        });
+    }
     
-    // Add hover effect to newsletter (no animation)
+    // Add hover effect to newsletter
     const newsletter = document.querySelector('.newsletter-container');
-    newsletter.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.01)';
-    });
-    
-    newsletter.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
+    if (newsletter) {
+        newsletter.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.01)';
+        });
+        
+        newsletter.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
     
     // Smooth scrolling for any future navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -154,11 +175,16 @@ function addInteractiveEffects() {
             }
         });
     });
+    
+    // Re-calculate progress bar on window resize
+    window.addEventListener('resize', function() {
+        setTimeout(updateProgressBar, 100);
+    });
 }
 
 // Utility function to easily update progress from console or other scripts
 function setProgress(percentage, status = null) {
-    CONFIG.progress.percentage = percentage;
+    CONFIG.progress.percentage = Math.max(0, Math.min(100, percentage));
     if (status) {
         CONFIG.progress.status = status;
     }

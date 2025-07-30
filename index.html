@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Amazing Series</title>
+    <title>Learning with Pibby</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -41,7 +41,7 @@
         
         <!-- Status Bar -->
         <div class="status-container">
-            <div class="status-label">Status: "Yep it n here"</div>
+            <div class="status-label" id="statusLabel">Status: "Loading..."</div>
             <div class="progress-bar-container">
                 <div class="progress-bar" id="progressBar"></div>
                 <div class="progress-ball" id="progressBall"></div>
@@ -57,24 +57,28 @@
             <div class="newsletter-container">
                 <h1 class="newsletter-title" id="newsletterTitle">Latest Update!</h1>
                 
-                <div class="newsletter-image-container">
-                    <img src="newsletter.png" alt="Newsletter Image" class="newsletter-image">
-                </div>
-                
-                <div class="newsletter-meta">
-                    <span class="posting-date" id="postingDate">July 29, 2025</span>
-                </div>
-                
-                <div class="newsletter-content">
-                    <p id="newsletterText">
-                        Welcome to our amazing series! We're working hard to bring you the best content possible. 
-                        Stay tuned for more updates as we progress through this incredible journey. 
-                        Our team is dedicated to creating something truly special that you'll love!
-                    </p>
-                </div>
-                
-                <div class="writer-credit">
-                    <span>Written by: <strong id="writerName">Series Team</strong></span>
+                <div class="newsletter-content-wrapper">
+                    <div class="newsletter-image-container">
+                        <img src="newsletter.png" alt="Newsletter Image" class="newsletter-image">
+                    </div>
+                    
+                    <div class="newsletter-text-section">
+                        <div class="newsletter-meta">
+                            <span class="posting-date" id="postingDate">July 29, 2025</span>
+                        </div>
+                        
+                        <div class="newsletter-content">
+                            <p id="newsletterText">
+                                Welcome to our amazing series! We're working hard to bring you the best content possible. 
+                                Stay tuned for more updates as we progress through this incredible journey. 
+                                Our team is dedicated to creating something truly special that you'll love!
+                            </p>
+                        </div>
+                        
+                        <div class="writer-credit">
+                            <span>Written by: <strong id="writerName">Series Team</strong></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

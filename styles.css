@@ -1,20 +1,4 @@
-@keyframes wiggle {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(0deg);
-    }
-}
-
-.posting-date {
-    background-color: #FFFF99; /* Light yellow from palette */
-    color: #333;
-    padding: 8px 15px;
-    border: 2px solid #333;
-    border-radius: 15px;
-    font-weight: bold;
-    box-shadow: /* Custom Font */
+/* Custom Font */
 @font-face {
     font-family: 'SaldaSoft Black';
     src: url('SaldaSoft Black.otf') format('opentype');
@@ -42,7 +26,7 @@ body {
     position: relative;
     background-color: white;
     padding: 20px;
-    min-height: 300px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +41,7 @@ body {
 }
 
 .menu-button {
-    background-color: white;
+    background-color: #F8BBD9;
     border: 3px solid #333;
     border-radius: 50%;
     width: 50px;
@@ -68,6 +52,7 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 0px #333;
+    transition: all 0.2s ease;
 }
 
 .menu-button:hover {
@@ -75,7 +60,7 @@ body {
 }
 
 .menu-button.active {
-    background-color: #DA70D6;
+    background-color: #E49BFF;
 }
 
 .hamburger-line {
@@ -130,6 +115,7 @@ body {
     border-radius: 10px;
     margin: 5px 0;
     text-align: center;
+    transition: transform 0.2s ease;
 }
 
 .menu-link:hover {
@@ -137,52 +123,54 @@ body {
 }
 
 .menu-link.youtube {
-    background-color: #DA70D6; /* Pink/Magenta from palette */
-    color: white;
+    background-color: #F8BBD9;
+    color: #333;
 }
 
 .menu-link.youtube:hover {
-    background-color: #C85AC8;
+    background-color: #F5A5D1;
 }
 
 .menu-link.twitter {
-    background-color: #98FB98; /* Light green from palette */
+    background-color: #B8E6B8;
     color: #333;
 }
 
 .menu-link.twitter:hover {
-    background-color: #85E885;
+    background-color: #A5E1A5;
 }
 
 .menu-link.discord {
-    background-color: #FFFF99; /* Light yellow from palette */
+    background-color: #E49BFF;
     color: #333;
 }
 
 .menu-link.discord:hover {
-    background-color: #EEEE88;
+    background-color: #D885FF;
 }
 
 .logo-container {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .logo {
-    max-width: 350px;
+    max-width: 300px;
     height: auto;
     border: 3px solid #333;
     border-radius: 15px;
     background-color: white;
     padding: 10px;
+    box-shadow: 5px 5px 0px #333;
 }
 
 .character-container {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .character {
     max-width: 120px;
     height: auto;
+    filter: drop-shadow(3px 3px 0px #333);
 }
 
 /* Status Bar Styles */
@@ -201,12 +189,12 @@ body {
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
-    color: #DA70D6; /* Pink/Magenta from your palette */
+    color: #E49BFF;
 }
 
 .progress-bar-container {
     position: relative;
-    background-color: #87CEEB; /* Light blue from your palette */
+    background-color: #F0F0F0;
     border: 3px solid #333;
     border-radius: 25px;
     height: 40px;
@@ -216,9 +204,9 @@ body {
 
 .progress-bar {
     height: 100%;
-    background-color: #FFFF99; /* Light yellow from your palette */
+    background-color: #B8E6B8;
     border-radius: 25px;
-    transition: width 0.5s ease-in-out;
+    transition: width 0.8s ease-in-out;
     width: 0%;
 }
 
@@ -228,12 +216,17 @@ body {
     transform: translateY(-50%);
     width: 34px;
     height: 34px;
-    background-color: #FFFF99; /* Light yellow from your palette */
+    background-color: #F8BBD9;
     border: 3px solid #333;
     border-radius: 50%;
-    transition: left 0.5s ease-in-out;
+    transition: left 0.8s ease-in-out;
     left: -17px;
     box-shadow: 2px 2px 0px #333;
+    cursor: pointer;
+}
+
+.progress-ball:hover {
+    transform: translateY(-50%) scale(1.1);
 }
 
 .progress-text {
@@ -263,6 +256,11 @@ body {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 8px 8px 0px #333;
+    transition: transform 0.3s ease;
+}
+
+.newsletter-container:hover {
+    transform: scale(1.01);
 }
 
 .newsletter-title {
@@ -270,7 +268,7 @@ body {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 0px #FFFF99; /* Light yellow shadow */
+    text-shadow: 2px 2px 0px #F8BBD9;
 }
 
 .newsletter-content-wrapper {
@@ -308,7 +306,7 @@ body {
 }
 
 .posting-date {
-    background-color: #FFFF99; /* Light yellow from palette */
+    background-color: #FFE5B4;
     color: #333;
     padding: 8px 15px;
     border: 2px solid #333;
@@ -327,11 +325,12 @@ body {
     line-height: 1.6;
     color: #333;
     text-align: justify;
-    background-color: #f9f9f9;
+    background-color: #F8F8FF;
     padding: 20px;
     border: 2px solid #333;
     border-radius: 10px;
     margin-bottom: 15px;
+    box-shadow: 3px 3px 0px #DDD;
 }
 
 .writer-credit {
@@ -339,7 +338,7 @@ body {
     margin: 0;
     font-style: italic;
     color: #666;
-    background-color: #98FB98; /* Light green from palette */
+    background-color: #E6F3FF;
     padding: 10px;
     border: 2px solid #333;
     border-radius: 10px;
@@ -350,15 +349,11 @@ body {
     color: #333;
 }
 
-.writer-credit strong {
-    color: #333;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .header {
         padding: 15px;
-        min-height: 250px;
+        min-height: 350px;
     }
     
     .menu-container {
