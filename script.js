@@ -2,26 +2,24 @@
 const CONFIG = {
     // Progress Configuration
     progress: {
-        percentage: 45, // Change this to update progress (0-100)
-        status: "Yep it n here", // Change status text here
+        percentage: 5, // Change this to update progress (0-100)
+        status: "Planning", // Change status text here
         showPercentage: true // Show percentage in progress text
     },
     
     // Newsletter Configuration
     newsletter: {
-        title: "Latest Development Update!",
-        postingDate: "July 29, 2025",
-        text: `We're excited to share our latest progress on the series! Our team has been working tirelessly to bring you amazing content. We've completed major story developments and character designs. The animation process is moving along smoothly, and we can't wait to show you what we've been creating. 
-        
-        Stay tuned for more updates as we get closer to release. We appreciate all your patience and support as we work to make this series the best it can be!`,
-        writerName: "The Creative Team"
+        title: "Welcome!",
+        postingDate: "July 31, 2025",
+        text: `Welcome to the Learning Center Page! Here we will show our status updates and progress for LWPA!`,
+        writerName: "Devon"
     },
     
     // Social Media Links - Easy to edit!
     socialLinks: {
-        youtube: "https://youtube.com/@yourchannel", // Replace with your YouTube channel
-        twitter: "https://twitter.com/yourhandle",   // Replace with your Twitter
-        discord: "https://discord.gg/yourserver"    // Replace with your Discord invite
+        youtube: "https://www.youtube.com/@StudioVEGAProductionCo", // Replace with your YouTube channel
+        twitter: "https://x.com/StudioVEGA_139",   // Replace with your Twitter
+        discord: "https://discord.gg/rvgaJnhmNe"    // Replace with your Discord invite
     }
 };
 
