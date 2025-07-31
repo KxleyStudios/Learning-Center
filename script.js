@@ -2,8 +2,8 @@
 const CONFIG = {
     // Progress Configuration
     progress: {
-        percentage: 5, // Change this to update progress (0-100)
-        status: "Planning", // Change status text here
+        percentage: 60, // Change this to update progress (0-100)
+        status: "Creating Animation", // Change status text here
         showPercentage: true // Show percentage in progress text
     },
     
